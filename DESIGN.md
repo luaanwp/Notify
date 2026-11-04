@@ -15,5 +15,8 @@ Ferramenta de operação para acompanhar oportunidades com evidência. Caráter:
 - Texto `#25332f`, secundário `#596760`, fundo `#f5f7f6`, superfície `#fff`, borda `#dce2de`.
 - Foco com contorno visível; erro com cor semântica; navegação e favoritos neutros.
 
+## Componentes e adaptação
+Tabela para desktop, cartões rotulados abaixo de 700 px. Fontes e evidências usam os mesmos tokens e controles neutros; salvar etapa e cadastrar oportunidade continuam sendo as ações primárias. Revisão é confirmação de leitura de evidência, com nota e autoria, sem representar uma publicação de resultado. Os fluxos locais foram exercitados em navegador desktop e celular; estados conectados ainda exigem Supabase real.
+
 ## Skills locais
 Originais preservados em `.agents/skills/`. Unslop: Damir Sokolovsky, https://heydamir.design/unslop, licença CC BY 4.0. Impeccable fornecida: versão 4.8.0, Apache 2.0. Pacotes de apoio não fornecidos; instalação local contém apenas os documentos originais.

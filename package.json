@@ -1,1 +1,34 @@
-{"name":"notify","private":true,"version":"0.1.0","type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"tsc -b && vite build","preview":"vite preview","test":"node --experimental-strip-types --test src/domain.test.ts"},"dependencies":{"@supabase/supabase-js":"^2.57.0","react":"^19.1.1","react-dom":"^19.1.1","lucide-react":"^0.468.0"},"devDependencies":{"@types/react":"^19.1.10","@types/react-dom":"^19.1.9","typescript":"~5.9.2","vite":"^7.1.3"}}
+{
+  "name": "notify",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "node --experimental-strip-types --test src/domain.test.ts scripts/tests/*.test.mjs",
+    "test:ui": "playwright test",
+    "check:design": "node scripts/check-design.mjs",
+    "collect": "node scripts/collect.mjs",
+    "format": "prettier --write src scripts package.json tsconfig.json playwright.config.ts tests"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "cheerio": "^1.2.0",
+    "ipaddr.js": "^2.5.0",
+    "lucide-react": "^0.468.0",
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.15",
+    "@playwright/test": "^1.64.1",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.9",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.3"
+  }
+}

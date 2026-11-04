@@ -17,10 +17,12 @@ Acompanhar oportunidades conhecidas, etapas, prazos e evidências oficiais. Sepa
 Orçamento autorizado de R$ 0 mensal. Nenhuma chave administrativa no navegador. Não inventar dados, resultados publicados ou sucesso de coleta. Implantação e contas ainda não configuradas.
 
 ## Evidence on Hand
-Plano original em docs/PLANO.md. Nenhuma URL real de oportunidade fornecida.
+Plano original em docs/PLANO.md. Usuário forneceu os sites do MWC Barcelona e da Expocomer, além de imagens dos eventos. Provas pontuais registradas em docs/validacao/fontes-reais.md; não representam monitoramento contínuo nem cadastro compartilhado.
 
 ## Product Principles
 Preservar evidências; explicitar incerteza; acesso por equipe; manter dados conhecidos quando a coleta falhar.
 
 ## Decisões de implementação
 O usuário autorizou decisões pequenas e reversíveis. Primeira entrega prioriza cadastro manual, etapas, histórico e base de acesso. Modo local é isolado e identificado, sem dados fictícios iniciais. Identidade visual é escolha técnica provisória, não preferência confirmada do usuário.
+
+Segunda entrega: coletor HTTP/HTML/PDF, evidências privadas, revisão manual com autoria, fila com leases e workflow desativado até configuração. Eventos mantêm payload JSON com controle de revisão; fontes e versões são normalizadas. Essa divisão é decisão de implementação, não mudança no objetivo do plano. Processos oficiais e participação interna não são inferidos automaticamente de texto alterado ou prazo vencido.

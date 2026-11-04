@@ -1,0 +1,27 @@
+name: Consultar fontes oficiais
+on:
+  schedule:
+    - cron: "17 0,6,12,18 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: notify-collector
+  cancel-in-progress: false
+jobs:
+  collect:
+    # Desativado por padrão: habilitar somente após configurar contas gratuitas e limites.
+    if: vars.MONITOR_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --omit=dev
+      - run: node scripts/collect.mjs
