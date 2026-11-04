@@ -6,11 +6,9 @@ import {
   CalendarDays,
   Check,
   ChevronLeft,
-  CircleHelp,
   LayoutList,
   Plus,
   Search,
-  Settings,
   X,
 } from "lucide-react";
 import { supabase } from "./client";
@@ -209,71 +207,54 @@ export default function App() {
   }
   return (
     <div className="shell">
-      <aside className="sidebar">
-        <a
-          href="#"
-          className="brand"
-          onClick={() => {
-            setPage("Oportunidades");
-            setSelected(null);
-          }}
-        >
-          <span className="brand-mark">
-            <Bell size={24} />
-          </span>
-          notify<span className="brand-dot">.</span>
-        </a>
-        <div className="team">
-          <span className="avatar">C</span>
-          <div>
-            <strong>CartAI</strong>
-            <small>Espaço da equipe</small>
-          </div>
-        </div>
-        <nav aria-label="Navegação principal">
-          {[
-            ["Oportunidades", LayoutList],
-            ["Prazos", CalendarDays],
-            ["Configurações", Settings],
-          ].map(([label, Icon]) => (
-            <button
-              key={label as string}
-              className={page === label ? "nav active" : "nav"}
+      <header className="app-header">
+        <div className="header-inner">
+          <div className="header-navigation">
+            <a
+              href="#"
+              className="brand"
               onClick={() => {
-                setPage(label as string);
+                setPage("Oportunidades");
                 setSelected(null);
-                setAdding(false);
               }}
             >
-              <Icon size={24} />
-              {label as string}
-              {label === "Oportunidades" && (
-                <span className="count">{entries.length}</span>
-              )}
-            </button>
-          ))}
-        </nav>
-        <div className="sidebar-bottom">
-          <CircleHelp size={24} />
-          <p>
-            Da oportunidade ao próximo passo.
-            <small>Etapas e evidências em um só lugar.</small>
-          </p>
-        </div>
-      </aside>
-      <div className="content">
-        <header className="topbar">
-          <span>
-            Espaço de trabalho <span className="slash">/</span> {page}
-          </span>
-          <span className="account">
-            <span className="status-dot" />
-            {supabase ? user || "Acesso privado" : "Modo local"}
-            <span className="avatar small">
-              {user ? user[0].toUpperCase() : "C"}
+              <span className="brand-mark">
+                <Bell size={24} />
+              </span>
+              notify<span className="brand-dot">.</span>
+            </a>
+            <nav aria-label="Navegação principal">
+              {["Oportunidades", "Prazos", "Configurações"].map((label) => (
+                <button
+                  key={label}
+                  className={page === label ? "nav active" : "nav"}
+                  aria-current={page === label ? "page" : undefined}
+                  onClick={() => {
+                    setPage(label);
+                    setSelected(null);
+                    setAdding(false);
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+          </div>
+          <div className="header-account">
+            <span className="workspace-name">CartAI</span>
+            <span className="account">
+              <span className="status-dot" />
+              <span className="account-label">
+                {supabase ? user || "Acesso privado" : "Modo local"}
+              </span>
+              <span className="avatar small">
+                {user ? user[0].toUpperCase() : "C"}
+              </span>
             </span>
-          </span>
-        </header>
+          </div>
+        </div>
+      </header>
+      <div className="content">
         <main>
           {error && (
             <div className="message error" role="alert">
@@ -561,10 +542,9 @@ export default function App() {
                   </div>
                   {!supabase && (
                     <div className="local-note">
-                      <span className="badge">Modo local</span>
                       <p>
-                        Comece por aqui. Os dados ficam neste navegador até
-                        conectar o Supabase.
+                        Dados salvos somente neste navegador. Conecte um espaço
+                        para compartilhar com a equipe.
                       </p>
                     </div>
                   )}
@@ -693,17 +673,15 @@ export default function App() {
                       <section className="overview" aria-label="Resumo">
                         <div>
                           <span>Em acompanhamento</span>
-                          <strong>
-                            {entries.length.toString().padStart(2, "0")}
-                          </strong>
+                          <strong>{entries.length}</strong>
                         </div>
                         <div>
                           <span>Prazos em 7 dias</span>
                           <strong>
-                            {deadlines
-                              .filter((s) => daysUntil(s.date) <= 7)
-                              .length.toString()
-                              .padStart(2, "0")}
+                            {
+                              deadlines.filter((s) => daysUntil(s.date) <= 7)
+                                .length
+                            }
                           </strong>
                         </div>
                         <div>

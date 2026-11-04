@@ -22,6 +22,9 @@ Plano original em docs/PLANO.md. Usuário forneceu os sites do MWC Barcelona e d
 ## Product Principles
 Preservar evidências; explicitar incerteza; acesso por equipe; manter dados conhecidos quando a coleta falhar.
 
+## Brand Commitments
+Preferência explícita do usuário: navegação horizontal no topo, agrupada no canto superior esquerdo. O usuário rejeitou a organização com barra lateral esquerda; preservar cores e funcionalidades ao reorganizar. Não reintroduzir esse padrão sem novo pedido.
+
 ## Decisões de implementação
 O usuário autorizou decisões pequenas e reversíveis. Primeira entrega prioriza cadastro manual, etapas, histórico e base de acesso. Modo local é isolado e identificado, sem dados fictícios iniciais. Identidade visual é escolha técnica provisória, não preferência confirmada do usuário.
 
